@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>食物网站</title>
+	<style>
+		@font-face {
+	    font-family: 'open_sanslight';
+	    src: url('opensans-light-webfont.eot');
+	    src: url('opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('opensans-light-webfont.woff2') format('woff2'),
+	         url('opensans-light-webfont.woff') format('woff'),
+	         url('opensans-light-webfont.ttf') format('truetype'),
+	         url('opensans-light-webfont.svg#open_sanslight') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+        }
+        @font-face {
+	    font-family: 'megalopolis_extraregular';
+	    src: url('megalopolisextra-webfont.eot');
+	    src: url('megalopolisextra-webfont.eot?#iefix') format('embedded-opentype'),
+	         url('megalopolisextra-webfont.woff2') format('woff2'),
+	         url('megalopolisextra-webfont.woff') format('woff'),
+	         url('megalopolisextra-webfont.ttf') format('truetype'),
+	         url('megalopolisextra-webfont.svg#megalopolis_extraregular') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+		}
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-family: 'open_sanslight';
+			color: #1f2539;
+		}
+		.header{
+			width: 1347px;
+			height: 630px;
+			padding-top: 1px;
+			background: url(食物.png);
+			margin: 0 auto;
+		}
+		.raw{
+			width: 100%;
+			margin-top: 48px;
+			overflow: hidden;
+		}
+		.raw .logo{
+			float: left;
+			margin-left: 91px;
+		}
+		.nav{
+			width: 984px;
+			margin-left: 306px;
+			margin-top: 50px;
+		}
+		.nav ul>li{
+			display: inline-block;
+			padding-right: 62px;
+		}
+		.nav a{
+			text-decoration: none;
+			font-size: 14px;
+			font-weight: bold;
+			color: #1f2539;
+		}
+		.content{
+			width: 1150px;
+			margin: 0 auto;
+			padding-top: 30px;
+		}
+		.section{
+			height: 300px;
+			display:table-cell;
+			vertical-align:middle;
+			
+		}
+		span:first-of-type{
+			font-size: 25px;
+			color: #cc4846;
+			letter-spacing: 0.2em;
+		}
+		span:nth-of-type(2),span:nth-of-type(3){
+			font-family: 'megalopolis_extraregular';
+			font-size: 55px;
+		}
+		span:nth-of-type(3){
+			display: inline-block;
+			margin-bottom: 20px;
+		}
+		.section a,.article-2 a,.article-3 a{
+			width: 229px;
+			height: 65px;
+			border-radius: 5px;
+			background: #cc4846;
+			color: #fff;
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px;
+			display:table-cell;
+			vertical-align:middle;
+		}
+		div.main{
+			width: 1347px;
+			height: 640px;
+			background:#cc4846;
+		}
+		div.bg-food{
+			width: 1183px;
+			margin: 0 auto;
+			padding-top: 22px;
+			overflow: hidden;
+		}
+		div.food1{
+			height: 298px;
+			width: 585px;
+		}
+		div.food2{
+			height: 300px;
+			width: 390px;
+		}
+		div.food1,div.food2{
+			position: relative;
+			float: left;
+			overflow: hidden;
+		}
+		div.article{
+			position: absolute;
+			width: 100%;
+		    float: left;
+		    height: 70%;
+		    bottom: 0;
+		    left: 0;
+		    /**background: -webkit-linear-gradient(to bottom, rgba(31, 37, 57, 0) 0%, #1f2539 100%);**/
+		    background: linear-gradient(to bottom, rgba(31, 37, 57,0), #1f2539);
+		}
+		.article h3{
+			position: absolute;
+			bottom: 55px;
+			margin-left: 41px;
+			font-family: 'megalopolis_extraregular';
+			color: #ffbe44;
+			font-size: 25px;
+		}
+		.article p{
+			position: absolute;
+			bottom: 27px;
+			color: #fff;
+			left: 41px;
+		}
+		.bg-second{
+			width: 1347px;
+			height: 610px;
+			background: #ffbe44;
+		}
+		.contenter{
+			width: 1200px;
+			padding-top: 35px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.article-2{
+			width: 50%;
+			margin-top: 15px;
+			float: left;
+			padding:0 10px;
+		}
+		.icons{
+			width: 50%;
+			margin-left: 600px;
+		}
+		.icon-lg{
+			width: 245px;
+			height: 245px;
+			border:2px solid #cc4846;
+			border-radius: 50%;
+			display: inline-block;
+			margin: 0 20px 30px 10px;
+			position: relative;
+		}
+		.tubiao{
+			width: 32px;
+			height: 32px;
+			position: absolute;
+			top:40%;
+			left:50%;
+			transform:translate(-50%,-40%);
+		}
+		.article-2 h1,.article-2 h3,.article-3 h2{
+			font-family: 'megalopolis_extraregular';
+			font-weight: 900;
+		}
+		.article-2 h1{
+			font-size: 43px;
+		}
+		.article-2 h3{
+			font-size: 26px;
+			margin-top: 23px;
+		}
+		.article-2 p{
+			font-size: 18px;
+		}
+		.article-2 p:first-of-type{
+			margin-top: 40px;
+		}
+		.article-2 p:nth-of-type(2){
+			margin: 26px 0 32px 0;
+		}
+		.icon-lg span{
+			display: block;
+			font-family: 'megalopolis_extraregular';
+			width: 200px;
+			font-size: 21px;
+			text-align: center;
+			position: absolute;
+			margin-top: 10px;
+			top:55%;
+			left:60%;
+			transform:translate(-60%,-55%);
+		}
+		.bg-third{
+			width: 1347px;
+			height: 450px;
+			background-color: #cc4846;
+			position: relative;
+		}
+		div.article-3{
+			width: 520px;
+			height: 270px;
+			position: absolute;
+			top: 100px;
+			left: 128px;
+			text-align: center;
+		}
+		.article-3 h2{
+			color: #fff;
+			font-size: 35px;
+			margin-bottom: 40px;
+		}
+		.article-3 p{
+			font-size: 20px;
+			color: #fff;
+			line-height: 1.25em;
+		}
+		.article-3 a{
+			background-color: #FFBE44;
+			width: 170.2px;
+			height: 51px;
+			color: #1f2539;
+			text-decoration: none;
+			position: absolute;
+			left: 50%;
+			transform:translate(-50%);
+			margin-top: 33px;
+		}
+		.article-3 span{
+			color: #1f2539;
+			font-size: 12px;
+			font-weight: bold;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform:translate(-50%,-50%);
+		}
+		div.bg-four{
+			background-color: #FFBE44;
+			padding: 130px 0 84px 0;
+		}
+		div.content-4{
+			width: 1200px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		div.section-4{
+			width: 50%;
+			float:left;
+		}
+		div.section-5{
+			width: 50%;
+			float: left;
+		}
+		div.circle{
+			width: 120px;
+			height: 120px;
+			background-image: url("page-1_img07.jpg");
+			border-radius: 50%;
+			float: left;
+		}
+		div.circle-2{
+			background-image: url("page-1_img08.jpg");
+		}
+		.article-4{
+			margin-left: 160px;
+			padding-right: 40px;
+		}
+		.content-4 h2{
+			font-family: 'megalopolis_extraregular';
+			font-size: 35px;
+			margin-bottom: 58px;
+		}
+		.article-4 time{
+			color: #cc4846;
+			font-weight: bold;
+		}
+		.article-4 h4{
+			font-family: 'megalopolis_extraregular';
+			font-size: 26px;
+			margin-bottom: 12px;
+		}
+		.article-4 p{
+			font-size: 15px;
+		}
+		.article-4 a{
+			display: inline-block;
+			background-color: #cc4846;
+			padding: 11px 40px;
+			border-radius: 5px;
+			color: #fff;
+			font-weight: bold;
+			margin-top: 33px;
+		}
+		.footer{
+			background-color: #1f2539;
+			font-size: 14px;
+			padding: 50px 0 60px 0;
+		}
+		.content-ft{
+			width: 1200px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.ft-l1,.ft-l2,.ft-l3{
+			padding: 0 15px;
+			float: left;
+		}
+		.ft-l1 h2,.ft-l2 h2,.ft-l3 h2{
+			color: #4c5268;
+			font-family: 'megalopolis_extraregular';
+			font-size: 26px;
+		}
+		.ft-l1 a,.ft-l2 a,.ft-l3 a,.ft-xx a{
+			color: #ffbe44;
+			font-weight: bold;
+			text-decoration: none;
+		}
+		.ft-l2 address,.ft-l2 dl{
+			color: #E5E6EB;
+			font-weight: bold;
+		}
+		.ft-l2 dt,.ft-l2 dd{
+			display: inline-block;
+		}
+		.ft-l2 dl{
+			margin-top: 23px;
+		}
+		.ft-l1 li,.ft-l2 li,.ft-l3 li{
+			line-height: 1.5em;
+		}
+		.ft-xx{
+			text-align: right;
+			float: right;
+		}
+		.ft-xx p{
+			margin-top: 86px;
+			color: #7e839c;
+		}
+		.btn:hover{
+			position: relative;
+	        top: -10px;
+	        box-shadow: 2px 3px 4px 2px rgba(204,72,70,0.5);
+		}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<div class="raw">
+			<div class="logo">
+				<img src="logo1.png">
+			</div>
+			<div class="nav">
+				<ul>
+					<li><a href="#">HOME</a></li>
+					<li><a href="#">ABOUT US</a></li>
+					<li><a href="#">MENU & NUTRITION</a></li>
+					<li><a href="#">EVENTS</a></li>
+					<li><a href="#">CONTACTS</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
+			<div class="section">
+				<span>Express food to raise your mood!</span><br />
+				<span>Fast service and</span><br />
+				<span>big size portions!</span><br />
+				<a href="#" class="btn">Make a choice</a>
+			</div>
+		</div>
+	</div>
+	<div class="main">
+		<div class="bg-food">
+			<div class="food1">
+				<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\food1.jpg">
+				<div class="article">
+					<h3>BREAKFAST — $11.99</h3>
+					<p>fast food</p>
+				</div>
+			</div>
+			<div class="food1">
+				<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\food2.jpg">
+				<div class="article">
+					<h3>SPICY MONSTER kebab — $4.99</h3>
+					<p>fresh with the highest quality of ingredients</p>
+				</div>
+			</div>
+			<div class="food2">
+				<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\food3.jpg">
+				<div class="article">
+					<h3>FRENCH pizza — $20.99</h3>
+					<p>handcut chicken, buns baked</p>
+				</div>
+			</div>
+			<div class="food2">
+				<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\food4.jpg">
+				<div class="article">
+					<h3>SPICY CHICKEN<br /> SANDWICH — $3.99</h3>
+					<p>sandwiches with a variety of toppings</p>
+				</div>
+			</div>
+			<div class="food2">
+				<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\food5.jpg">
+				<div class="article">
+					<h3>BBQ CHICKEN<br /> SANDWICH — $2.99</h3>
+					<p>perfect taste and superior ingredients</p>
+				</div>
+			</div>
+		</div>
+		<div class="bg-second">
+			<div class="contenter">
+				<div class="article-2">
+					<h1>Feel hungry? Make a smart choice!</h1>
+					<p>We offer fast food, served fresh with the highest quality of ingredients: fresh, handcut chicken, buns baked fresh in our own bakeries and the most delicious hot dogs with a variety of toppings.</p>
+					<h3>Our mission is:</h3>
+					<p>To be a positive, respectful, healthy place to eat, work, and do business.</p>
+					<a>learn more</a>
+				</div>
+				<div class="icons">
+					<div class="icon-lg">
+						<div class="sjmt">
+							<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\icon (1).svg" class="tubiao">
+							<span>follow us<br />on facebook</span>
+						</div>
+					</div>
+					<div class="icon-lg">
+						<div class="sjmt">
+							<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\icon (2).svg" class="tubiao">
+							<span>Google+</span>
+						</div>
+					</div>
+					<div class="icon-lg">
+						<div class="sjmt">
+							<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\icon (3).svg" class="tubiao">
+							<span>follow us<br />on Twitter</span>
+						</div>
+					</div>
+					<div class="icon-lg">
+						<div class="sjmt">
+							<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\icon (4).svg" class="tubiao">
+							<span>Wechat</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bg-third">
+			<div class="article-3">
+				<h2>Our location</h2>
+				<p>Our Fast Food Restaurant is located in the heart of the United States and is the best in fast food among others. We serve our clients with all kinds of meals.</p>
+				<a href="#" class="btn"><span>Read more</span></a>
+			</div>
+		</div>
+		<div class="bg-four">
+			<div class="content-4">
+			 <h2>Latest news</h2>
+				<div class="section-4">
+					<div class="circle"></div>
+					<div class="article-4">
+						<time>MAY 25, 2015</time>
+						<h4>Our restaurant steps up the international development of its brand</h4>
+						<p>The number one fast food chain in America announces its accelerating of the pace of its international brand development with the opening today of its first restaurant in France and, later this week, its first restaurant in Turkey.</p>
+						<a>Read more</a>
+					</div>
+				</div>
+				<div class="section-5">
+					<div class="circle circle-2"></div>
+					<div class="article-4">
+						<time>DEC 16, 2015</time>
+						<h4>We are opening the restaurant in Belgium</h4>
+						<p>Our Restaurant will open its doors and create about 40 jobs. This new restaurant is the fifth restaurant to open in the province of Namur.</p>
+						<a>Read more</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<div class="content-ft">
+				<div class="ft-l1">
+					<h2>Menu</h2>
+					<ul>
+						<li><a>Home</a></li>
+						<li><a>About Us</a></li>
+						<li><a>Menu & Nutrition</a></li>
+						<li><a>Events</a></li>
+						<li><a>Contacts</a></li>
+					</ul>
+				</div>
+				<div class="ft-l2">
+					<h2>Contact information</h2>
+					<address>
+						9863 - 9867 Mill Road,<br />
+						Cambridge, MG09 99HT.
+					</address>
+					<dl>
+						<dt>Freephone:</dt>
+						<dd>
+							<a href="callto:#">+1 800 559 6580</a>
+						</dd>
+						<br />
+						<dt>E-mail:</dt>
+						<dd>
+							<a href="mailto:#">mail@demolink.org</a>
+						</dd>
+					</dl>
+				</div>
+				<div class="ft-l3">
+					<h2>Social links</h2>
+					<ul>
+					    <li><a>Facebook</a></li>
+						<li><a>Twitter</a></li>
+						<li><a>Google+</a></li>
+						<li><a>Wechat</a></li>
+					</ul>
+				</div>
+				<div class="ft-xx">
+					<img src="C:\Users\xiaoyi\Desktop\素材\食物素材\logo_footer.png" />
+					<p>Fast Food Restaurant © 2015 All rights reserved.</p>
+					<a href="#">Terms of use</a>
+				    <a href="#">Privacy Policy</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
